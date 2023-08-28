@@ -1,3 +1,5 @@
+# 1.0.1
+- upgrade packages & source code
 # 1.0.0
 
 **Features/Updates**

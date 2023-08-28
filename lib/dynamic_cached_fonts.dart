@@ -2,8 +2,6 @@
 /// It can be easily fetched from cache and loaded on demand.
 library dynamic_cached_fonts;
 
-import 'dart:typed_data';
-
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
@@ -489,7 +487,8 @@ class DynamicCachedFonts {
   /// - **REQUIRED** The [url] property is used to specify the url
   ///   for the required font. It should be a valid http/https url which points to
   ///   a font file. The [url] should match the url passed to [cacheFont].
-  static Future<bool> canLoadFont(String url) => RawDynamicCachedFonts.canLoadFont(url);
+  static Future<bool> canLoadFont(String url) =>
+      RawDynamicCachedFonts.canLoadFont(url);
 
   /// Fetches the given [url] from cache and loads it as an asset.
   ///
@@ -584,7 +583,8 @@ class DynamicCachedFonts {
   /// - **REQUIRED** The [url] property is used to specify the url
   ///   for the required font. It should be a valid http/https url which points to
   ///   a font file. The [url] should match the url passed to [cacheFont].
-  static Future<void> removeCachedFont(String url) => RawDynamicCachedFonts.removeCachedFont(
+  static Future<void> removeCachedFont(String url) =>
+      RawDynamicCachedFonts.removeCachedFont(
         url,
       );
 

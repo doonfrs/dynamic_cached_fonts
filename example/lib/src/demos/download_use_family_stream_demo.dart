@@ -9,7 +9,8 @@ class DynamicCachedFontsDemo6 extends StatefulWidget {
   const DynamicCachedFontsDemo6({Key? key}) : super(key: key);
 
   @override
-  _DynamicCachedFontsDemo6State createState() => _DynamicCachedFontsDemo6State();
+  _DynamicCachedFontsDemo6State createState() =>
+      _DynamicCachedFontsDemo6State();
 }
 
 class _DynamicCachedFontsDemo6State extends State<DynamicCachedFontsDemo6> {
@@ -43,30 +44,30 @@ class _DynamicCachedFontsDemo6State extends State<DynamicCachedFontsDemo6> {
           DisplayText(
             'The text is being displayed in the default flutter font which is ${DefaultTextStyle.of(context).style.fontFamily}.',
             fontFamily: '',
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           DisplayText(
             'To download $roboto bold, click the download button above ☝️.',
             fontFamily: roboto,
             fontWeight: FontWeight.bold,
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           DisplayText(
             'To download $roboto italic, click the download button above ☝️.',
             fontFamily: roboto,
             fontStyle: FontStyle.italic,
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           DisplayText(
             'To download $roboto, click the download button above ☝️.',
             fontFamily: roboto,
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           DisplayText(
             'To download $roboto thin, click the download button above ☝️.',
             fontFamily: roboto,
             fontWeight: FontWeight.w100,
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           ...showLoaders(),
         ],
@@ -93,7 +94,8 @@ class _DynamicCachedFontsDemo6State extends State<DynamicCachedFontsDemo6> {
       urls: [robotoBoldUrl, robotoItalicUrl, robotoRegularUrl, robotoThinUrl],
     );
     fontStream = dynamicCachedFont.loadStream(
-      itemCountProgressListener: (progress, totalItems, currentFont) => setState(() {
+      itemCountProgressListener: (progress, totalItems, currentFont) =>
+          setState(() {
         this.progress = progress;
         total = totalItems;
         position = currentFont;
@@ -130,7 +132,8 @@ class _DynamicCachedFontsDemo6State extends State<DynamicCachedFontsDemo6> {
         ),
       ]);
     else if (downloadProgress != null && downloadProgress!.downloaded > 0)
-      loaders.add(Text('Downloaded font from ${downloadProgress?.originalUrl}!'));
+      loaders
+          .add(Text('Downloaded font from ${downloadProgress?.originalUrl}!'));
 
     return loaders;
   }

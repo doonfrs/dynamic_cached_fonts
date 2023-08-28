@@ -10,7 +10,8 @@ class DynamicCachedFontsDemo7 extends StatefulWidget {
   const DynamicCachedFontsDemo7({Key? key}) : super(key: key);
 
   @override
-  _DynamicCachedFontsDemo7State createState() => _DynamicCachedFontsDemo7State();
+  _DynamicCachedFontsDemo7State createState() =>
+      _DynamicCachedFontsDemo7State();
 }
 
 class _DynamicCachedFontsDemo7State extends State<DynamicCachedFontsDemo7> {
@@ -18,7 +19,11 @@ class _DynamicCachedFontsDemo7State extends State<DynamicCachedFontsDemo7> {
   double progress = 0;
   DownloadProgress? downloadProgress;
 
-  final List<String> fontUrls = [mononokiBoldUrl, mononokiItalicUrl, mononokiRegularUrl];
+  final List<String> fontUrls = [
+    mononokiBoldUrl,
+    mononokiItalicUrl,
+    mononokiRegularUrl
+  ];
   late final Stream<FileInfo> downloadFontStreams;
   late final Stream<FileInfo> loadCachedFamilyStream;
 
@@ -33,7 +38,8 @@ class _DynamicCachedFontsDemo7State extends State<DynamicCachedFontsDemo7> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('$demoTitle - Load Family As Stream (Custom Controls)'),
+        title:
+            const Text('$demoTitle - Load Family As Stream (Custom Controls)'),
       ),
       body: Column(
         children: <Widget>[
@@ -53,24 +59,24 @@ class _DynamicCachedFontsDemo7State extends State<DynamicCachedFontsDemo7> {
           DisplayText(
             'The text is being displayed in the default flutter font which is ${DefaultTextStyle.of(context).style.fontFamily}.',
             fontFamily: '',
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           DisplayText(
             'To download $mononoki bold, click the download button above ☝️.',
             fontFamily: mononoki,
             fontWeight: FontWeight.bold,
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           DisplayText(
             'To download $mononoki italic, click the download button above ☝️.',
             fontFamily: mononoki,
             fontStyle: FontStyle.italic,
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           DisplayText(
             'To download $mononoki, click the download button above ☝️.',
             fontFamily: mononoki,
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
           ...showLoaders()
         ],
@@ -84,7 +90,8 @@ class _DynamicCachedFontsDemo7State extends State<DynamicCachedFontsDemo7> {
     );
   }
 
-  Future<void> handleDownloadButtonPress() => downloadFontStreams.listen((_) {}).asFuture();
+  Future<void> handleDownloadButtonPress() =>
+      downloadFontStreams.listen((_) {}).asFuture();
 
   Future<void> handleUseFontPress() async {
     if ((await Future.wait(fontUrls.map(DynamicCachedFonts.canLoadFont)))
@@ -148,7 +155,8 @@ class _DynamicCachedFontsDemo7State extends State<DynamicCachedFontsDemo7> {
         ),
       ]);
     else if (downloadProgress != null && downloadProgress!.downloaded > 0)
-      loaders.add(Text('Downloaded font from ${downloadProgress?.originalUrl}!'));
+      loaders
+          .add(Text('Downloaded font from ${downloadProgress?.originalUrl}!'));
 
     return loaders;
   }

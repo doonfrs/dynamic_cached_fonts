@@ -23,7 +23,8 @@ class DisplayText extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontSize: fontSize ?? Theme.of(context).textTheme.headline5!.fontSize,
+          fontSize:
+              fontSize ?? Theme.of(context).textTheme.headlineSmall!.fontSize,
           fontFamily: fontFamily,
           fontWeight: fontWeight,
           fontStyle: fontStyle,
